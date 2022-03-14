@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <script defer src="dist/booking.js"></script>
+    <script defer src="dist/overlay.js"></script>
+    <script defer src="dist/contacts.js"></script>
+    <script defer src="dist/navigation.js"></script>
+    <script defer src="dist/comments.js"></script>
+    <!-- <script defer src="dist/slideshow.js"></script> -->
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/resetstyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veronica Beauty Salon</title>
+</head>
+<body>
+
+
+    <header>
+        <nav>
+            <a href="#"><img src="img/logo-simple.png" id="header-logo" alt="Home"></a>
+            <ul class="inactive">
+                <li><a href="#">Pagina principală</a></li>
+                <li><a href="#Programare">Programări</a></li>
+                <li><a href="#Servicii">Prețuri</a></li>
+                <li><a href="#Despre-noi">Despre noi</a></li>
+                <li><a onclick="RevealContacts()">Contacte</a></li>
+            </ul>
+            <img id="hamburger"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pV
+            UAAAABmJLR0QA/wD/AP+gvaeTAAAAwElEQVR4nO3awQ3CQAxFQS8N0ABlQZVQFg1QwdIASiIUWT
+            /KzNmHld7JWlcBAAAAAAAAAL+MtYE5562qrg1vOYPPGOO9NLAlyLOq7rs96dxeY4zH0sCl6yVsI0
+            gYQcIIEkaQMIKEESSMxbDX6mIIAAAAAADszn9IL4dyYRzKHY0gYQQJI0gYQcIIEkaQMBbDXg7lAA
+            AAAACgn/+QXg7lwjiUOxpBwggSRpAwgoQRJIwgYSyGvRzKAQAAAAAAAMCfvn73LTQ0smXTAAAAAE
+            lFTkSuQmCC">
+        </nav>
+    </header>
+
+
+    <div class="center-children-horizontal center-children-vertical" style="position: fixed; z-index: 1002; pointer-events: none;">
+        <div id="contacts" class="invisible" style="position:fixed; pointer-events: all;">
+            <section class="btn-contact">
+                <img src="https://img.icons8.com/ios/50/000000/phone.png"/>
+                <span>+37322426080</span>
+            </section>
+
+            <section class="btn-contact">
+                <img src="https://img.icons8.com/ios/50/000000/email-open.png"/>
+                <span>frizerie@gmail.com</span style="display: inherit;">
+            </section>
+
+            <section class="btn-contact dropdown">
+                <img src="https://img.icons8.com/ios-filled/50/000000/marker.png"/>
+                <span style="display: inherit;">Strada Igor Vieru 10, Chișinău</span>
+                <img style="margin-left: auto;"src="https://img.icons8.com/ios-glyphs/30/000000/expand-arrow--v2.png" style="display: inherit;"/>
+
+                <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d183.50768308894132!2d28.888727161485413!3d47
+                .050403613939025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97ceca3832979%3A0xb2970318e4a59b41!2s
+                Frizeria%20Trandafir!5e0!3m2!1sen!2s!4v1644674011470!5m2!1sen!2s" 
+                style="border:0;" allowfullscreen="" loading="lazy" class="dropdown-element"></iframe> 
+            </section>
+        </div>
+    </div>
+
+
+    <div id="main-showcase" class="center-children-horizontal" style="position: relative;">
+        <div id="main-showcase-video">
+            <!-- <video src="video/collage-loop-slower.mp4"autoplay muted loop></video> -->
+            <img src="./img/slideshow/haircut-collage.png" alt="No image Found" class="slideshow-anim">
+            <img src="./img/slideshow/haircut-collage.png" alt="No image Found" class="slideshow-anim">
+            <!-- <div id="slideshow">
+                <div class="slideshow-element"><img src="img/slideshow/element-1.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-2.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-3.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-4.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-5.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-6.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-7.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-8.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-9.jpg"></div>
+                <div class="slideshow-element"><img src="img/slideshow/element-10.jpg"></div>
+            </div> -->
+            <div class="overlay" style="background:rgba(0,0,0,0.8)"></div>
+        </div>
+        <img src="img/logo-cropped.png" alt="bruh" width="300px" class="logo-showcase">
+        <a href="#Programare" class="btn-main" style="position: absolute; top:50%; z-index: 990;">Programare</a>
+        <span id="orele-de-lucru" style="z-index: 990;">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/
+            AP+gvaeTAAAEiElEQVRoge2a3W9VRRTF19BiLykKLbSU+CLxE5XKo4Yg0UQtlkTjG6hvEIgJQpQ/wqTyQoLRZ/8DEyVoUkShthSqUGPpByYGJBVMjC
+            KFgubnw+xjp+nh3nvmTG94YL9Membvtda+M3NmZp9K9+zuMpcKCGiX9LykTZKelPSwpE5JreZyXdJvkn6W9JOkE5K+cc79kUpDtAEV4G3gS+Bfits/w
+            FHgLaCljJaoEQGWSXpH0vuS1trjWUkDko5JGpU0Lmla0t/Wv1xSl6THJXVLekHSc5KyBC5LOijpI+fczRhdRZPoBS4Ev+owsBNYEYG1EtgFnA7wpoCt
+            i6E9I60AHweEZ4CXE+L3AN8H+IeBSir8jKTLhANcB/YCTXXGDgIDdfo2AfuAmWC015RTPwe+zoYbYAx4umA8AAVjuoFxC50E1hVTvRCwIwA8BayOwCi
+            ciMW1AScs/ALQVRQjA6oE02kAaK0dlYsTlYjFttrUzKZZ8TUTLOwx/GYXZWUSsfhVwaw4XDS4N1jYhdZEDlapRAyjO3gB9NQbtIy5fWJvGQGGVzoRw9
+            kfLP7aUww4YAFnqPMVWwMvVSLNwA8Gt7+Wcwvwqzm/VJbcMJMkYlivGtzlqqOCP7wBDKcgNsyUiTjm3qQ7qjl+ZU47UxAbZrJEDG+3QR65k0M7/lh9k
+            4gDYBXi1Im0AbPA7VDnksBni6QmSSedc3+mIk5tdhEblNQsf5GTND+RTdZ+3UBdsXbM2s3ZgzCR9daebZiceMs0PpE9CBN51NrJFEzAUuDD4O8+YGkK
+            bEkT1j6WR/y7rctVKZiAgyy0vkTYqw3val7nrHXel4jsak4iVxJhtxje/3f7JdUCStqNnGe3FossTOSatfeXBQU6JeXtHZ+WxTbLNF5b0ANM2HCtX9B
+            ZwIBOYNSwfgEu4s9vHySctk8Z/vm8zs+t87USBB3AOcMZI/Z6WpvnDeP4LHsWTq0xa5+JBO+U1C9pg6QfJW1xzk3Hiq1h3dbmjsjrlmV/UdRGjUTAd9
+            y4tuV1tjF3aFxZADRcE6M2Motm+MNtdmh84E5OR03QrgLAw41Kwvj2GN8X1ZzeNKfTBYC/w9duG5GEA0ZM4/Zqji3AJXN8ZbGFFTVgm2m7SK3PEMB75
+            jxCguJDKsMXH86atnfrCagwV+vd1wCNdVnwA4/XHI0gaKsFzQDdtSMW14CNwA3TVOxTBv77RPYLJDnax5jtUZOm5VAMQCV4tQ4SWcQuY8ByYMg0DNU9
+            pXKAOoDzBnQK6EistRp3O3DSuKco+8EH/6EnG9pxIOosVpBzY8A5ATyUCnhNMM1m8AXl5iTg83ma7e2ULewhUm+0tmayFwD4gnKSr6/4Hbs32CcADkW
+            viTpJe4JhB1+L3Q20RWC1489OIwHeBBFfi2P/YaAiaY+kA5IetMe35CuA/ZLOyZdspjX/Cr1WvoSzQdKLkp6VlN0aL0nqk/SJc242Rle04c9mO4Aj+C
+            tAUbuNv5luLzuNUv5TzQr5Wuxm+arlI5I6NL9QcEXSlPzN7ltJx51zf6XScM/uJvsPHj/0h8fWd0EAAAAASUVORK5CYII=">
+            Luni-Vineri 9:00 - 20:00 <br>
+            Sâmbătă-Duminică 9:00 -17:00
+        </span>
+    </div>
+
+
+    <div id="under-fold">
+        <section  class="integral-div" id="Servicii">
+            <h1>Servicii și Prețuri</h1>
+            <div id="servicii">
+                <table>
+                    <tr>
+                        <td><img src="img/coafura.jpg" alt="Poză de Frizură/Cuafură Dame"></td>
+                        <td>Frizură/Coafură Dame</td>
+                        <td>150-400 lei</td>
+                        <div class=".overlay" style="background-color: black;"></div>
+                    </tr>
+                    <tr>
+                        <td> <img src="img/tunsura-barbati.jpg" alt="Poză de Tunsoare Bărbați"></td>
+                        <td>Tunsoare Barbati</td>
+                        <td><span>100 lei</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/Ingrijirea tenului.jpg" alt="Poză de Îngrijirea Tenului"></td>
+                        <td><span>Îngrijirea Tenului</span></td>
+                        <td><span>De la 150 lei</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="img/manichiura.jpg" alt="Poză de Manichiură"></td>
+                        <td><span>Manichiură + acoperire cu gel-lac</span></td>
+                        <td><span>200 lei</span></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        
+        <section class="integral-div" id="Despre-noi">
+            <h1>Despre noi</h1>
+            <div id="despre-noi">
+                <p style="margin-bottom: 2rem;">
+                    În aceast salon din prima zi a fost demonstrată atitudinea sensibilă față de fiecare client 
+                    și un nivel ridicat de profesionalism în toate domeniile furnizate. De la prima impresie 
+                    veți cădea în atmosfera de îngrijire și bunăvoință. Simțiți-vă liber de la agitația de zi cu zi, 
+                    prin deschiderea de noi senzații și plăcere de la priceperea specialiștilor noștri!
+                    Salonul oferă o gamă completă de servicii, printre care nu numai o pedichiură, manichiură
+                    și lucrarea de coafură, ci și cosmetologia feței și corpului, procedurile hardware,
+                    masaj și tot ceea ce este necesar pentru a vă sublinia unicitatea, frumusețea naturală și atractivitate.
+                    În lucrarea sa, Maestrul ia în considerare caracteristicile fiecărui client, încercând să vă sublinieze
+                        individualitatea, luând în considerare tipul pielii, culoarea părului și ochiul, precum și multe alte 
+                        detalii non-evidente. Simțiți-vă unic și confortabil într-o nouă imagine creată în conformitate cu
+                        dorințele dvs., cât și cele mai recente tendințe de modă.
+
+
+                </p>
+                <div id="interior-display">
+                    <img src="img/interior1.jpg" alt="poza de interiorul salonului">
+                    <img src="img/interior2.jpg" alt="poza de interiorul salonului">
+                    <img src="img/interior3.jpg" alt="poza de interiorul salonului">
+                    <img src="img/interior4.jpg" alt="poza de interiorul salonului">
+                </div>
+            </div>
+        </section>
+
+        <section class="integral-div" id="#Mărturii">
+            <h1>Mărturii</h1>
+            <div id="comments" class="center-children-horizontal" style="column-gap: 5vw; margin-bottom: 200px; margin-top:3rem ;">
+                <div class="comment-bubble">
+                    <h2>evulmediu</h2>
+                    <ul class="comment-bubble-score">
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                    </ul>
+                    <p>
+                        Preț rezonabil, frizura facuta exact asa cum am dorit, rapid, calitativ, curat - 5/5.
+                    </p>
+                    <a href="https://goo.gl/maps/kNGnxrN1LnFtqA78A" target="_blank" class="comment-bubble-source">Sursa</a>
+                    <div class="visible overlay"></div>
+                </div>
+                <div class="comment-bubble">
+                    <h2>Dorina D</h2>
+                    <ul class="comment-bubble-score">
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                    </ul>
+                    <p>
+                        Mulțumită de lucru efectuat de către meșterite 💕👌👌👌😍
+                    </p>
+                    <a href="https://goo.gl/maps/hL2vVy389QNYkQDx9" target="_blank" class="comment-bubble-source">Sursa</a>
+                    <div class="visible overlay"></div>
+                </div>
+                <div class="comment-bubble">
+                    <h2>Teo Dora</h2>
+                    <ul class="comment-bubble-score">
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                        <li><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAD8ElEQVRoge2ZTWgcZRjHf8+sO62NdRGtsU2rlBRrjd21u+9EiHpTrEL15kVowYsoNK3amyLm4K0gNOi9igcvRZCit+ChOezMbkwgIAZbYtIPFVOStIbMZufx0BXTmN35yEwpmB8s7M77/p//88wzM++7u7DJJptkhuu6/dVq1cnSQ7IKPD4+/nCj0bgEkM/n95ZKpd+z8LGyCArg+/47wDZgW+t9JmTSgampqS3z8/PTQHfr0B++7z82MDCwlLZXJh1YWFg4yr/JA+ywbfuNLLxSL0BVRVVPrjN0SlVT73jqBXiedxh4cp2h/fV6/aW0/VIvwLKs99qNqeq7aful2lLXdZ8SkYlOcS3LerpcLo+n5ZlqB0TkfUJOSrPZPJGqZ1qBWgvXNLA1ZOoysNcYczUN39Q60Gg0jhOePMAW4O20fFPpwOjo6L22bf8KPBRRMpfP5x8tlUo3N+oduwBVFdd1u3O5XA+wS1V3A88CcReqr4ALIjILXGk2m5cdx/lNRDROkP8U4Hler2VZPaq6R1V3AruBHhHZpap7gEeAfMxko9IAronIjKpeAS4DsyJyVURmms3mrOM4F9sW4HneEPBRRsmlgoh8XKlUhv75vPYmvgjEauEdRoMguLT6wG0FGGPOquoxbrXybqMpIm85jvPF6oPr3sSu674gIueA7XcktXD+Al43xpxfO9D2KVStVh3Lss4DO7LMLAJzqvqq4zgX1hvs+Bj1PK8X+B7Yl0VmEZgGDhtjfmo3oeNKbIz5JQiC54Ef084sApMrKyvPdUoeIi5kk5OT9y0tLZ0DXkwltRBE5AdVfc0YMx82N9JeqK+v70ahUDiiql9vPL1QvlleXn45SvIQcyuhqlKr1U4Dbb+0bARV/cwYMygiQVRNos2c53lngONJtB0YNsYMxhUl3U7fSKhri6ouJtElLeCZhLrUY8YuQFUtwCQx64SI9LdixyK2YGxs7Ang/ri6CGyv1+v744qSdKA/ribL2HdVAUD2BSQxiUrmHRgZGdkKHIw4fQ4YbL3moghEpNjyiEysArq6usqAHTItEJEv8/n8AWPMsDFm2LbtfcAZYCVEaxcKhUNxcopVQC6XC2vxiIgcqlQqR1f/I1MsFq8bY04AB0Xku04BgiCIdRndE2dyh2t0RlU/XPt1by2trfErtVrtiKp+CvSuMy1WAXFv4rXBb6rq0OLi4uNhya+mUql8CxwATgILIR4dibyZm5iYeMD3/T9bmkBVz4rIBxv9jdPzvJ2q+omIHOPWCVXbth8sFovXo+gjX0Kq6gM/i8g1ETlVLpe9hDnfRusEvFmv1z9X1dOq2u37/nIasTfZ5P/A3w2IXwkElPMoAAAAAElFTkSuQmCC"></li>
+                    </ul>
+                    <p>
+                        Doamne profesioniste, amabile, educate, te simti ca acasa.
+                    </p>
+                    <a href="https://goo.gl/maps/sa7i9WUfaHxNqeVW7" target="_blank" class="comment-bubble-source">Sursa</a>
+                    <div class="visible overlay"></div>
+                </div>
+                <div class="comment-bubble">
+                    <h2>Adrian Dalișevschi</h2>
+                    <ul class="comment-bubble-score">
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                    </ul>
+                    <p>
+                        Personal plăcut și lucru calitativ ... foarte fain !!! Vă recomand sa vizitați ...
+                    </p>
+                    <a href="https://goo.gl/maps/1DncktuQKT5G6SCZA" target="_blank" class="comment-bubble-source">Sursa</a>
+                    <div class="visible overlay"></div>
+                </div>
+                <div class="comment-bubble">
+                    <h2>Ecaterina Crivoi</h2>
+                    <ul class="comment-bubble-score">
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                    </ul>
+                    <p>
+                        Cea mai minunata echipa este aici....
+                    </p>
+                    <a href="https://goo.gl/maps/T2ncEXXcYDbyTiwZ9" target="_blank" class="comment-bubble-source">Sursa</a>
+                    <div class="visible overlay"></div>
+                </div>
+                <div class="comment-bubble">
+                    <h2>Anton Paladuta</h2>
+                    <ul class="comment-bubble-score">
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"/></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                        <li><img src="https://img.icons8.com/fluency/48/000000/star.png"></li>
+                    </ul>
+                    <p>
+                        Foarte minutios... rar mai vezi asa ceva,,multumesc!😁😁
+                    </p>
+                    <a href="https://goo.gl/maps/7HKiS2QKPYwVXywz5" target="_blank" class="comment-bubble-source">Sursa</a>
+                    <div class="visible overlay"></div>
+                </div>
+            </div>
+        </section>
+
+    <section class="integral-div" id="Programare">
+        <h1>Programare</h1>
+        <div id="appointments">
+                <div id="appointmets-form-container">
+                    <form id="form-book" class="visible" method="post" action="">
+                        <section class="subflex-horizontal">
+                            <div class="input">
+                                <input type="text" name="name"  id="form-book-name">
+                                <label>Nume</label>
+                            </div>
+                            <div class="input">
+                                <input type="text"   name="surname"  id="form-book-surname">
+                                <label>Prenume</label>
+                            </div>
+                        </section>
+                        <div class="input">
+                            <input type="tel" name="telefon"  id="form-book-telefon">
+                            <label>Telefon</label>
+                        </div>
+                        <section class="subflex-horizontal">
+                            <div class="input dropdown dropdown-simple" id="month-dropdown">
+                                <ul class="dropdown-element">
+                                    <li value="0">Ianuarie</li>
+                                    <li value="1">Februarie</li>
+                                    <li value="2">Martie</li>
+                                    <li value="3">Aprilie</li>
+                                    <li value="4">Mai</li>
+                                    <li value="5">Iunie</li>
+                                    <li value="6">Iulie</li>
+                                    <li value="7">August</li>
+                                    <li value="8">Septembrie</li>
+                                    <li value="9">Octombrie</li>
+                                    <li value="10">Noiembrie</li>
+                                    <li value="11">Decembrie</li>
+                                </ul>
+                                <input type="text"  readonly style="width: 9rem;"  name="month" id="form-book-month">
+                                <label>Lună</label>
+                            </div>
+                            <div class="input dropdown dropdown-grid" id="day-dropdown">
+                                <ul class="dropdown-element"></ul>
+                                <input type="text" readonly style="width: 6rem;"  name="day" id="form-book-day">
+                                <label>Zi</label>
+                            </div>
+                            <div class="dropdown input dropdown-simple" id="time-dropdown">
+                                <ul class="dropdown-element"></ul>
+                                <input type="text"  readonly style="width: 5rem;"  name="hour" id="form-book-hour">
+                                <label>Oră</label>
+                            </div>
+                        </section>
+                        <input type="submit" class="btn-main" value="Submit"style="margin-top:3rem;" onclick="FinishBooking()">
+                    </form>
+
+                    <div id="appointments-booked" class="invisible">
+                        <h2>EȘTI PROGRAMAT PE</h2>
+                        <ul id="appointments-booked-date">
+                            <li id="appointments-booked-day">10</li>
+                            <li id="appointments-booked-month">septembrie</li>
+                            <li id="appointments-booked-year">2020</li>
+                            <li id="appointments-booked-hour">17:50</li>
+                        </ul>
+                        <!-- <button>Anulează</button> -->
+                    </div>
+                    
+<!-- 
+                    <div id="appointments-verification" class="invisible">
+                        <h2>INTRODUCE CODUL DE PE E-MAIL</h2>
+                        <input type="text" maxlenght="5" id="verification-code">
+                        <button class="btn-main" onclick="VerifyCode()">Verifică</button>
+                    </div> -->
+
+                </div>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d183.50768308894132!2d28.888727161485413!3d47
+                .050403613939025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97ceca3832979%3A0xb2970318e4a59b41!2s
+                Frizeria%20Trandafir!5e0!3m2!1sen!2s!4v1644674011470!5m2!1sen!2s" 
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </section>
+    
+
+    <footer class="footer">
+        <ul>
+            <li><h3>Rețele de socializare</h3></li>
+            <li><a href="https://www.facebook.com/frizerieVeronica" target="_blank">
+                <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-facebook-social-media-justicon-lineal-color-justicon.png"
+                /></a></li>
+        </ul>
+        <ul>
+            <li><h3>Navigare</h3></li>
+            <li><a href="#">Pagina principala</a></li>
+            <li><a href="#Programare">Programări</a></li>
+            <li><a href="#Despre-noi">Despre noi</a></li>
+            <li><a onclick="RevealContacts()">Contactează-ne</a></li>
+        </ul>
+        <ul>
+            <li><h3>Contacte</h3></li>
+            <li><b>Locație</b>: Strada Igor Vieru 10, Chișinău</li>
+            <li><b>E-mail</b>: frizerie@gmail.com</li>
+            <li><b>Telefon</b>: +37322426080</li>
+        </ul>
+        <ul>
+            <li><h3>Link-uri</h3></li>
+            <li><a target="_blank" href="https://icons8.com/icon/9659/phone">Phone</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+            <li><a target="_blank" href="https://icons8.com/icon/124383/email-open">Email Open</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>li>
+            <li><a href="https://icons8.com/icon/7880/location" target="_blank">Location icon by Icons8</a></li>
+            <li><a target="_blank" href="https://icons8.com/icon/3723/location">Location</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
+<!-- Icons8
+<a href="https://icons8.com/icon/8ggStxqyboK5/star">Star icon by Icons8</a>
+<a target="_blank" href="https://icons8.com/icon/9659/phone">Phone</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icon/124383/email-open">Email Open</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a target="_blank" href="https://icons8.com/icon/3723/location">Location</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+<a href="https://icons8.com/icon/undefined/undefined">undefined icon by Icons8</a> -->
